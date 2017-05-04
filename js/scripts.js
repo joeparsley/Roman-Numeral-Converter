@@ -1,35 +1,23 @@
+//////////////////BUSINESS LOGIC///////////////////////
+
 var romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
 var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
+//construct a roman numeral from a number
 var romanize = function(input) {
   var romanString = "";
   for (var i = 0; i < romans.length; i++) {
     if (input >= numbers[i]) {
-      romanString += romans[i];
-      input -= numbers[i];
-      i -= 1;
+      romanString = romanString + romans[i];
+      input = input - numbers[i];
+      i = i - 1;
     }
   }
   console.log(romanString);
   return romanString;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//deconstruct a roman numeral into it's corresponding number
 //Convert single character roman numerals
 var convertSingleRoman = function(input) {
   for (var i = 0; i < romans.length; i++ ) {
@@ -45,10 +33,9 @@ var checkLowBeforeHigh = function(input, i) {
   input = input.map(function(element) {
     return convertSingleRoman(element);
   });
-  // for (var i = 0; i < input.length; i++) {
-    if (input[i] < input[i + 1]) {
-      return true;
-    }
+  if (input[i] < input[i + 1]) {
+    return true;
+  }
   // }
   return false;
 };
@@ -79,7 +66,6 @@ var convertMultiRoman = function(input) {
   return result;
 }
 
-
 var deromanize = function (input) {
   if (input.length === 1) {
     input = convertSingleRoman(input);
@@ -91,8 +77,7 @@ var deromanize = function (input) {
 };
 
 
-
-
+////////////////USER INTERFACE LOGIC//////////////////////
 $(document).ready(function() {
   $('#to-roman').submit(function(e) {
     e.preventDefault();

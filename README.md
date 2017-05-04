@@ -14,6 +14,7 @@
 
 | Behavior| Input Example | Output Example |
 |:-------------:|:-------------:|:-------------:|
+| Convert an integer into it's corresponding roman numeral | 7 | VII |
 | Convert single character roman numerals | V | 5|
 | Identify when a lower number is before a higher number | IV | true |
 | When there is a lower number first separate the two into their own element | XVIV | [X,V,IV] |
