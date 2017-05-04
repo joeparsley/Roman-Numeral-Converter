@@ -40,26 +40,38 @@ var convertSingleRoman = function(input) {
 };
 
 // Identify when a lower number is before a higher number
-var checkLowBeforeHigh = function(input) {
-  input = input.split("");
+var checkLowBeforeHigh = function(input, i) {
+  // input = input.split("");
   input = input.map(function(element) {
     return convertSingleRoman(element);
   });
-  for (var i = 0; i < input.length; i++) {
-    if (input[i] > input[i - 1]) {
+  // for (var i = 0; i < input.length; i++) {
+    if (input[i] < input[i + 1]) {
       return true;
     }
-  }
+  // }
   return false;
 };
 
+//When there is a lower number first separate the two into their own element
+var reorderElements = function(input) {
+  input = input.split("");
+  for (var i = 0; i < input.length; i++) {
+    if (checkLowBeforeHigh(input, i) === true) {
+      input[i] += input[i + 1];
+      input.splice(i + 1, 1);
+      console.log('true');
+    }
+  }
+  return input;
+}
 
 
 var deromanize = function (input) {
   if (input.length === 1) {
     input = convertSingleRoman(input);
   }
-  input = checkLowBeforeHigh(input);
+  input = reorderElements(input);
   return input;
 };
 
