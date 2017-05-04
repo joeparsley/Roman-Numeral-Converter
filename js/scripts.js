@@ -14,13 +14,49 @@ var romanize = function(input) {
   return romanString;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var deromanize = function (input) {
+  return input;
+};
+
+
+
+
 $(document).ready(function() {
-  $('form').submit(function(e) {
+  $('#to-roman').submit(function(e) {
     e.preventDefault();
-    var input = parseInt($('#input').val());
+    var input = parseInt($('#number-input').val());
 
     result = romanize(input);
 
-    $('#output').text(result);
+    $('#roman-output').text(result);
+  });
+
+  $('#to-number').submit(function(e) {
+    e.preventDefault();
+    var input = $('#roman-input').val();
+
+    result = deromanize(input);
+
+    $('#number-output').text(result);
   });
 });

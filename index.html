@@ -17,10 +17,23 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <form>
+          <form id="to-roman">
             <div class="form-group">
-              <label for="input">Enter a number less than 4,000:</label>
-              <input type="number" class="form-control" name="input" id="input">
+              <label for="number-input">Enter a number less than 4,000:</label>
+              <input type="number" class="form-control" name="number-input" id="number-input">
+            </div>
+            <div class="form-group">
+              <button type="submit" name="button" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form id="to-number">
+            <div class="form-group">
+              <label for="roman-input">Enter a roman numeral:</label>
+              <input type="text" class="form-control" name="roman-input" id="roman-input">
             </div>
             <div class="form-group">
               <button type="submit" name="button" class="btn btn-success">Submit</button>
@@ -30,9 +43,8 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-          <p id="output">
-
-          </p>
+          <p>Roman Numeral: <span id="roman-output"></span></p>
+          <p>Converted to number: <span id="number-output"></span></p>
         </div>
       </div>
     </div>
