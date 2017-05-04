@@ -30,11 +30,23 @@ var romanize = function(input) {
 
 
 
+//Convert single character roman numerals
+var convertSingleRoman = function(input) {
+  for (var i = 0; i < romans.length; i++ ) {
+    if ( input.toUpperCase() === romans[i]) {
+      return numbers[i];
+    }
+  }
+};
+
 
 
 
 
 var deromanize = function (input) {
+  if (input.length === 1) {
+    input = convertSingleRoman(input);
+  }
   return input;
 };
 
